@@ -23,7 +23,7 @@ Complete information about us is on this website. Please do not hesitate to call
 
 **Links:**
 
-- [Complete Care PPC - Sponsored HealthCare System](/sponsored-health-care-program/)
-- [Service Providers](/service-providers/)
-- [TBT Organization and Authority](/organization-and-authority/)
-- [Blog](/blog/)
+- [Complete Care PPC - Sponsored HealthCare System]({{ '/sponsored-health-care-program/' | url }})
+- [Service Providers]({{ '/service-providers/' | url }})
+- [TBT Organization and Authority]({{ '/organization-and-authority/' | url }})
+- [Blog]({{ '/blog/' | url }})
