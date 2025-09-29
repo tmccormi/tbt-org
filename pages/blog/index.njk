@@ -1,0 +1,23 @@
+---
+layout: base.njk
+title: Blog
+permalink: /blog/index.html
+---
+
+<p>Updates and reflections from Tomorrow's Bread Today. Comments are currently closed to keep this archive read-only.</p>
+
+{% if collections.blog | length %}
+  <ul class="post-list">
+  {% for post in collections.blog %}
+    <li>
+      <article>
+        <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        <p class="post-meta">{{ post.date | readableDate }}</p>
+        <p>{{ post.data.summary }}</p>
+      </article>
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No posts have been published yet. Check back soon!</p>
+{% endif %}
