@@ -25,7 +25,10 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(new Date(value), { zone: "utc" }).toFormat(format);
   });
 
+  const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || "/";
+
   return {
+    pathPrefix,
     dir: {
       input: "pages",
       includes: "../layouts",
