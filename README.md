@@ -15,9 +15,16 @@ data/                 # Global Eleventy data files
 docs/                 # Generated site output served by GitHub Pages
 ```
 
+## Updating an existing Page
+1. Browse to the file inside `pages/` (for example `survice-providers.md`).
+2. Click the Edit (pencil icon).
+3. Edit the page.
+4. Click "Commit Changes" and add a comment on what changed.
+
 ## Adding a New Page
 
-1. Create a Markdown file inside `pages/` (for example `pages/your-page.md`). Include front matter so Eleventy can set the
+1. Create a new "branch" to hold your changes.
+2. Create a Markdown file inside `pages/` (for example `pages/your-page.md`). Include front matter so Eleventy can set the
    title and layout:
 
    ```markdown
@@ -29,11 +36,11 @@ docs/                 # Generated site output served by GitHub Pages
    Your page content written in Markdown.
    ```
 
-2. Update the navigation menu in `layouts/base.njk`. The header template contains a hard-coded `<ul>` list—add a new `<li>` with
+3. Update the navigation menu in `layouts/base.njk`. The header template contains a hard-coded `<ul>` list—add a new `<li>` with
    the link to your page (Eleventy will output `/your-page/`).
-3. Run `npm run build` to regenerate the HTML in `docs/` before committing so GitHub Pages serves the new page.
+4. Create a Pull Request for review to be merged into the main site.
 
-## Getting Started
+## FOR THE DEVELOPER ONLY
 
 1. Install dependencies:
 
