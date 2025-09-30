@@ -64,3 +64,5 @@ GitHub Pages can publish the contents of the `docs/` directory. To deploy:
 3. Push to the `main` branch and enable GitHub Pages in the repository settings, choosing **Deploy from a branch** → `main` branch → `/docs` folder.
 
 Every time you update content and rebuild, push the new commit and GitHub Pages will serve the refreshed site automatically.
+
+Base URL: https://github.com/tmccormi/tbt-org
