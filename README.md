@@ -59,6 +59,7 @@ docs/                 # Generated site output served by GitHub Pages
 3. Build the production-ready site into the `docs/` folder:
 
    ```bash
+   set ELEVENTY_PATH_PREFIX=/tbt-org/
    npm run build
    ```
 
