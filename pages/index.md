@@ -19,11 +19,6 @@ We have been in existence since 1994 and have worked mostly on healthcare for pa
 
 Consequently, we have programs in which the cost is 50% less than market rates and without pre-existing exclusions and available to both individuals and groups. We would like to build cooperatives in local communities that express the people’s economics we have discovered. We seek members who can help us grow cooperatives in local communities and who agree with our ideas and purposes.
 
-Complete information about us is on this website. Please do not hesitate to call us if the goals we have stated are of interest to you and your family, friends, and neighbors.
+Complete information about us is on this website. Please do not hesitate to email us if the goals we have stated are of interest to you and your family, friends, and neighbors.
 
-**Links:**
-
-- [Complete Care PPC - Sponsored HealthCare System]({{ '/sponsored-health-care-program/' | url }})
-- [Service Providers]({{ '/service-providers/' | url }})
-- [TBT Organization and Authority]({{ '/organization-and-authority/' | url }})
-- [Blog]({{ '/blog/' | url }})
+Email:  info@tbt.org
