@@ -9,8 +9,15 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <h1 class="site-title"><a href="{{ '/' | url }}">Tomorrow's Bread Today</a></h1>
-      <p class="tagline">Cooperative care rooted in community.</p>
+      <div class="site-branding">
+        <a class="site-logo" href="{{ '/' | url }}">
+          <img src="{{ '/assets/images/tbt-logo.png' | url }}" alt="Tomorrow's Bread Today logo">
+        </a>
+        <div class="site-text">
+          <h1 class="site-title"><a href="{{ '/' | url }}">Tomorrow's Bread Today</a></h1>
+          <p class="tagline">Cooperative care rooted in community.</p>
+        </div>
+      </div>
       <nav class="site-nav">
         <ul>
           <li><a href="{{ '/' | url }}">Home</a></li>
