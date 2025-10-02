@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog | Tomorrow's Bread Today</title>
+  <title>Comment Moderation | Tomorrow's Bread Today</title>
   <link rel="stylesheet" href="/tbt-org/assets/styles.css">
+  
+  <link rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css">
   
 </head>
 <body>
@@ -33,23 +35,51 @@
   <main class="site-main">
     <div class="container">
       <article class="content">
-        <h1 class="page-title">Blog</h1>
+        <h1 class="page-title">Comment Moderation</h1>
         
-<p>Updates and reflections from Tomorrow's Bread Today. Comments are currently closed to keep this archive read-only.</p>
+
+<p class="comment-admin__notice">Firebase credentials are not configured; the dashboard will not load until environment variables are provided.</p>
 
 
-  <ul class="post-list">
-  
-    <li>
-      <article>
-        <h2><a href="/tbt-org/blog/welcome/">Welcome to Tomorrow&#39;s Bread Today Blog</a></h2>
-        <p class="post-meta">January 15, 2024</p>
-        <p>An introduction to our new static home and what to expect in future updates.</p>
-      </article>
-    </li>
-  
+<p class="comment-admin__notice">reCAPTCHA is not configured. Moderation actions will be blocked until keys are supplied.</p>
+
+
+<p>The moderation dashboard is limited to approved Google accounts. Sign in with your Tomorrow's Bread Today email address to review new submissions.</p>
+
+<div id="firebaseui-auth-container" hidden></div>
+<div id="comment-admin-unauthorized" hidden>
+  <p>You are signed in, but your account is not authorized to review comments. Please contact an administrator for access.</p>
+  <button type="button" data-sign-out>Sign out</button>
+</div>
+
+<div id="comment-admin" hidden>
+  <div class="comment-admin__header">
+    <p data-admin-status role="status" aria-live="polite"></p>
+    <button type="button" data-sign-out>Sign out</button>
+  </div>
+  <section class="comment-admin__section">
+    <h2>Pending comments</h2>
+    <ul data-pending-comments class="moderation__list"></ul>
+  </section>
+  <section class="comment-admin__section">
+    <h2>Approved comments</h2>
+    <ul data-approved-comments class="moderation__list"></ul>
+  </section>
+</div>
+
+<div id="moderation-recaptcha"></div>
+
+<section class="comment-admin__help">
+  <h2>Moderator access</h2>
+  <p>The following email addresses are allowed to moderate comments:</p>
+  <ul>
+    
+    <li>info@tbt.org</li>
+    
+    <li>moderator@tbt.org</li>
+    
   </ul>
-
+</section>
 
         
       </article>
@@ -76,6 +106,8 @@
   
   
   
+  
+  <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
   
   
 </body>

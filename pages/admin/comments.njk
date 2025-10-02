@@ -1,0 +1,51 @@
+---
+layout: base.njk
+title: Comment Moderation
+enableFirebase: true
+enableRecaptcha: true
+includeFirebaseUI: true
+includeAdminComments: true
+permalink: /admin/comments/
+---
+
+{% if not env.firebaseConfig.apiKey %}
+<p class="comment-admin__notice">Firebase credentials are not configured; the dashboard will not load until environment variables are provided.</p>
+{% endif %}
+{% if not env.recaptchaSiteKey %}
+<p class="comment-admin__notice">reCAPTCHA is not configured. Moderation actions will be blocked until keys are supplied.</p>
+{% endif %}
+
+<p>The moderation dashboard is limited to approved Google accounts. Sign in with your Tomorrow's Bread Today email address to review new submissions.</p>
+
+<div id="firebaseui-auth-container" hidden></div>
+<div id="comment-admin-unauthorized" hidden>
+  <p>You are signed in, but your account is not authorized to review comments. Please contact an administrator for access.</p>
+  <button type="button" data-sign-out>Sign out</button>
+</div>
+
+<div id="comment-admin" hidden>
+  <div class="comment-admin__header">
+    <p data-admin-status role="status" aria-live="polite"></p>
+    <button type="button" data-sign-out>Sign out</button>
+  </div>
+  <section class="comment-admin__section">
+    <h2>Pending comments</h2>
+    <ul data-pending-comments class="moderation__list"></ul>
+  </section>
+  <section class="comment-admin__section">
+    <h2>Approved comments</h2>
+    <ul data-approved-comments class="moderation__list"></ul>
+  </section>
+</div>
+
+<div id="moderation-recaptcha"></div>
+
+<section class="comment-admin__help">
+  <h2>Moderator access</h2>
+  <p>The following email addresses are allowed to moderate comments:</p>
+  <ul>
+    {% for email in comments.allowedModerators %}
+    <li>{{ email }}</li>
+    {% endfor %}
+  </ul>
+</section>

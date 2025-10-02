@@ -1,0 +1,14 @@
+{
+  "name": "tbt-comments-functions",
+  "version": "1.0.0",
+  "description": "Cloud Functions for Tomorrow's Bread Today comment workflow",
+  "main": "index.js",
+  "engines": {
+    "node": "18"
+  },
+  "dependencies": {
+    "firebase-admin": "^11.10.1",
+    "firebase-functions": "^4.4.1",
+    "node-fetch": "^2.6.11"
+  }
+}
