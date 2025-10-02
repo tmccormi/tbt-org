@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if title %}{{ title }} | {% endif %}Tomorrow's Bread Today</title>
   <link rel="stylesheet" href="{{ '/assets/styles.css' | url }}">
+  {% if includeFirebaseUI %}
+  <link rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css">
+  {% endif %}
 </head>
 <body>
   <header class="site-header">
@@ -34,6 +37,11 @@
       <article class="content">
         <h1 class="page-title">{{ title }}</h1>
         {{ content | safe }}
+        {% if enableComments %}
+          {% block comments %}
+            {% include "partials/comments.njk" %}
+          {% endblock %}
+        {% endif %}
       </article>
     </div>
   </main>
@@ -51,5 +59,33 @@
       <p class="copyright">&copy; {{ "now" | readableDate("yyyy") }} Tomorrow's Bread Today. All rights reserved.</p>
     </div>
   </footer>
+  {% set hasFirebaseConfig = env.firebaseConfig.apiKey %}
+  {% set hasRecaptcha = env.recaptchaSiteKey %}
+  {% set includeFirebase = (enableComments or enableFirebase) and hasFirebaseConfig %}
+  {% set includeRecaptcha = (enableComments or enableRecaptcha) and hasRecaptcha %}
+  {% if includeFirebase %}
+  <script>
+    window.__FIREBASE_CONFIG__ = {{ env.firebaseConfig | dump | safe }};
+    window.__FIREBASE_FUNCTIONS_REGION__ = "{{ env.firebaseFunctionsRegion }}";
+    window.__FIREBASE_EMULATORS__ = {{ env.firebaseEmulators | dump | safe }};
+    window.__ALLOWED_MODERATORS__ = {{ comments.allowedModerators | dump | safe }};
+  </script>
+  <script type="module" src="{{ '/assets/js/firebase.js' | url }}"></script>
+  {% endif %}
+  {% if includeRecaptcha %}
+  <script>
+    window.__RECAPTCHA_SITE_KEY__ = "{{ env.recaptchaSiteKey }}";
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  {% endif %}
+  {% if enableComments and includeFirebase %}
+  <script type="module" src="{{ '/assets/js/comments.js' | url }}"></script>
+  {% endif %}
+  {% if includeFirebaseUI %}
+  <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+  {% endif %}
+  {% if includeAdminComments and includeFirebase %}
+  <script type="module" src="{{ '/assets/js/admin-comments.js' | url }}"></script>
+  {% endif %}
 </body>
 </html>
